@@ -1,3 +1,0 @@
-Test file for git, edited
-
-edited from pc
