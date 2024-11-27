@@ -1,13 +1,14 @@
 <h3>Create an account</h3>
-<form class="ui form" [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
-    <app-input fieldName="User Name" inputType="text" [control]="username"></app-input>
-    <app-input fieldName="Password" inputType="text" [control]="password"></app-input>
-    <app-input fieldName="Confirm Password" inputType="text" [control]="confirmPassword"></app-input>
-    <div *ngIf="signUpForm.controls['password'].touched && signUpForm.controls['confirmPassword'].touched
-    && signUpForm.errors" class="ui red basic label">
-        <p *ngIf="signUpForm.errors!['passwordDontMatch']">Entered passwords dont match</p>
+<form class="ui form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <app-input inputType="text" label="UserName" [control]="username"></app-input>
+    <app-input inputType="password" label="Password" [control]="password"></app-input>
+    <app-input inputType="password" label="Password Confirmation" [control]="passwordConfirmation"></app-input>
+    <div *ngIf="password.touched && passwordConfirmation.touched && signUpForm.errors" class="ui red basic label">
+        <p *ngIf="signUpForm.errors!['passwordDontMatch']">Password entered must match</p>
+        <p *ngIf="signUpForm.errors!['noConnection']">No Internet connection, Sign up failed</p>
+        <p *ngIf="signUpForm.errors!['unknownError']">Sign up failed</p>
     </div>
     <div>
-        <button type="submit" class="ui submit button primary">Sign Up</button>
+        <button type="submit" class="ui submit button primary">Submit</button>
     </div>
 </form>

@@ -11,9 +11,7 @@ describe('SignOutComponent', () => {
       declarations: [ SignOutComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(SignOutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

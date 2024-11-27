@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -6,19 +6,16 @@ import { FormControl } from '@angular/forms';
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css']
 })
-export class InputComponent implements OnInit {
-  @Input() fieldName = '';
-  @Input() inputType = '';
+export class InputComponent {
+  @Input() label: string = '';
   @Input() control!: FormControl;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Input() inputType: string = '';
+  @Input() controlType: string = 'input';
 
   showError(){
-    const { touched, dirty, errors } = this.control;
-    return (touched || dirty) && errors;
+    const { dirty, touched, errors } = this.control;
+
+    return dirty && touched && errors;
   }
 
 }

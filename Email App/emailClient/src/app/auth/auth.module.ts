@@ -4,24 +4,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AuthRoutingModule } from './auth-routing.module';
-import { SharedModule } from '../shared/shared.module';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { SignOutComponent } from './sign-out/sign-out.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { SharedModule } from '../shared/shared.module';
+import { SignOutComponent } from './sign-out/sign-out.component';
 
 
 @NgModule({
   declarations: [
     SignInComponent,
-    SignOutComponent,
-    SignUpComponent
+    SignUpComponent,
+    SignOutComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    SharedModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ]
 })
 export class AuthModule { }
